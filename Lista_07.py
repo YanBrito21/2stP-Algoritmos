@@ -184,8 +184,12 @@ produtos = {
     }
 
 def produto_caro(lista):
-    result = (f'O produto mais caro é o(a) {max(lista)} custando R$ {lista.get(max(lista))}')
-    print(result)
+    max_valor = max(lista.values())
+    chave = [x for x in lista if lista[x] == max_valor]
+    if len(chave) > 1:
+        print(f"Os produtos mais caros são {', '.join(chave)} custando R$ {max_valor}")
+    else:
+        print(f"O produto mais caro é o(a) {''.join(chave)}  custando R$ {max_valor}.")
             
 produto_caro(produtos)
 
